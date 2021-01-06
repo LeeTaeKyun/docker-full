@@ -12,12 +12,12 @@ script:
   - docker run -e CI=true meanthe/docker-full npm run test
 
 after_success:
-  - docker build -t Taekyun/docker-frontend ./frontend
-  - docker build -t Taekyun/docker-backend ./backend
-  - docker build -t Taekyun/docker-nginx ./nginx
+  - docker build -t meanthe/docker-frontend ./frontend
+  - docker build -t meanthe/docker-backend ./backend
+  - docker build -t meanthe/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push Taekyun/docker-frontend
-  - docker push Taekyun/docker-backend
-  - docker push Taekyun/docker-nginx
+  - docker push meanthe/docker-frontend
+  - docker push meanthe/docker-backend
+  - docker push meanthe/docker-nginx
